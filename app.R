@@ -1,17 +1,15 @@
-
 # Define UI for the application
 ui <- fluidPage(
-  titlePanel("Simple R Shiny App"),
-  
+  titlePanel("Simple R Shiny App changed"),
   sidebarLayout(
     sidebarPanel(
       sliderInput("bins",
-                  "Number of bins:",
-                  min = 5,
-                  max = 50,
-                  value = 30)
+        "Number of bins:",
+        min = 5,
+        max = 50,
+        value = 30
+      )
     ),
-    
     mainPanel(
       plotOutput("distPlot")
     )
@@ -21,10 +19,12 @@ ui <- fluidPage(
 # Define server logic
 server <- function(input, output) {
   output$distPlot <- renderPlot({
-    x <- rnorm(500)  # Generate random data
-    hist(x, breaks = input$bins, col = "blue", border = "white",
-         main = "Histogram of Randomly Generated Data",
-         xlab = "Value", ylab = "Frequency")
+    x <- rnorm(500) # Generate random data
+    hist(x,
+      breaks = input$bins, col = "blue", border = "white",
+      main = "Histogram of Randomly Generated Data",
+      xlab = "Value", ylab = "Frequency"
+    )
   })
 }
 
